@@ -5,12 +5,11 @@
 	--color-white: #ffffff;
 	--color-light-white: #eeeeee;
 	--color-dark-white: #bdbdbd;
-	--color-blue: #8eb8e9;
-	--color-dark-blue: #309ae0;
+	--color-blue: #81b1e7;
+	--color-dark-blue: #53aae4;
 	--color-dark-grey: #4d4d4d;
 	--color-grey: #616161;
 	--color-light-grey: #7c7979;
-	--color-blue: #73aace;
 	--color-yellow: #fff7d1;
 	--color-orange: #feb546;
 	--color-black: #000000;
@@ -47,8 +46,18 @@ a {
 }
 
 ul {
-	list-style: none;
 	padding-left: 0;
+}
+
+li {
+	list-style: none;
+}
+
+button {
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+	outline: none;
 }
 
 /* Typography */
@@ -119,4 +128,38 @@ p {
 
 .navbar__menu__item:hover {
 	background-color: var(--color-dark-blue);
+}
+
+/* Home */
+#home {
+	background: url(./images/home-background.png) center/cover no-repeat;
+	padding: 40px;
+	text-align: center;
+}
+
+.home__avatar {
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	border: 2px solid var(--color-light-white);
+}
+
+.home__title,
+.home__description {
+	color: var(--color-white);
+}
+
+.home_btn {
+	font-size: var(--font-regular);
+	font-weight: var(--weight-regular);
+	margin: 24px;
+	padding: 8px 12px;
+	border: 2px solid var(--color-white);
+	border-radius: 4px;
+	color: var(--color-white);
+}
+
+.home_btn:hover {
+	background-color: var(--color-white);
+	color: var(--color-blue);
 }
