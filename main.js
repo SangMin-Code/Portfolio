@@ -22,18 +22,21 @@ navbarMenu.addEventListener('click', (e) => {
 	if (target.classList.contains('navbar__menu__item')) {
 		removeActive('navbar__menu__item');
 		target.classList.add('active');
-		const toSection = target.dataset.section;
-		const section = document.querySelector(`#${toSection}`);
-		section.scrollIntoView({ behavior: 'smooth' });
+		const section = target.dataset.section;
+		scrollIntoView(section);
 	}
 });
 
 //contactme scrollTo
 const contactBtn = document.querySelector('.home_btn');
 contactBtn.addEventListener('click', (e) => {
-	const contact = document.querySelector('#contact');
-	contact.scrollIntoView({ behavior: 'smooth' });
+	scrollIntoView('#contact');
 });
+
+function scrollIntoView(selector) {
+	const section = document.querySelector(selector);
+	section.scrollIntoView({ behavior: 'smooth' });
+}
 
 function removeActive(className) {
 	const elements = document.querySelectorAll(`.${className}`);
