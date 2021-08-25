@@ -58,9 +58,11 @@ arrow.addEventListener('click', (e) => {
 });
 
 function scrollArrow() {
-	let opacity = 0;
-	opacity = window.scrollY > homeRect.height ? 1 : 0;
-	arrow.style.opacity = opacity;
+	if (window.scrollY > homeRect.height / 2) {
+		arrow.classList.add('visible');
+	} else {
+		arrow.classList.remove('visible');
+	}
 }
 
 // util
