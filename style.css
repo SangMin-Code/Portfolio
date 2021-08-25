@@ -128,7 +128,7 @@ p {
 }
 
 #navbar.onscroll {
-	padding: 8px;
+	padding: 5px;
 	background-color: var(--color-blue);
 }
 
@@ -202,6 +202,7 @@ p {
 /* Section Common */
 .section {
 	padding: 50px;
+	padding-top: 80px;
 	text-align: center;
 	margin: auto;
 }
