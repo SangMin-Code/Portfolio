@@ -3,9 +3,7 @@
 // transparent NavBar when it on the top
 const body = document.body;
 const navBar = document.querySelector('#navbar');
-const homeSection = document.querySelector('#home');
 const navBarRect = navBar.getBoundingClientRect();
-const homeSectionRect = homeSection.getBoundingClientRect();
 
 document.addEventListener('scroll', (e) => {
 	scrollHome();
@@ -23,10 +21,10 @@ function scrollNavbar() {
 }
 
 function scrollHome() {
-	const homeSectionHeight = homeSectionRect.height;
-	if (window.scrollY < homeSectionHeight) {
-		homeSection.style.opacity = 1 - window.scrollY / homeSectionHeight;
-	}
+	const homeContainer = document.querySelector('.home__container');
+	const homeContainerRect = homeContainer.getBoundingClientRect();
+	const homeContainerHeight = homeContainerRect.height;
+	homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
 }
 
 // navbar scrollTo
