@@ -43,6 +43,20 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	cursor: default;
 }
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+body.scroll::-webkit-scrollbar {
+	display: block;
+	width: 10px;
+	height: 3px;
+}
+body.scroll::-webkit-scrollbar-thumb {
+	background-color: var(--color-blue);
+}
+
 a {
 	text-decoration: none;
 	color: var(--color-white);
@@ -101,9 +115,12 @@ p {
 }
 
 #navbar {
+	z-index: 100;
+	position: fixed;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	background-color: var(--color-blue);
+	background-color: rgba(141, 191, 248, 1);
 	align-items: center;
 	color: var(--color-white);
 	padding: 16px;
@@ -145,7 +162,7 @@ p {
 /* Home */
 #home {
 	background: url(./images/home-background.png) center/cover no-repeat;
-	padding: 40px;
+	padding: 120px 40px 40px 40px;
 	text-align: center;
 }
 
