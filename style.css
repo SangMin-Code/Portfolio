@@ -499,6 +499,20 @@ p {
 	color: black;
 }
 
+.arrow {
+	position: fixed;
+	bottom: 50px;
+	right: 30px;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	border: 1px solid var(--color-blue);
+	color: var(--color-blue);
+	font-size: var(--font-medium);
+	border-radius: 50%;
+	opacity: 0;
+}
+
 @media screen and (max-width: 768px) {
 	.navbar__toggle-btn {
 		display: block;
@@ -531,5 +545,13 @@ p {
 	.testimonial__avatar {
 		width: 80px;
 		height: 80px;
+	}
+	.arrow {
+		border-radius: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		background-color: var(--color-blue);
+		color: var(--color-white);
 	}
 }

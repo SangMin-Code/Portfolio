@@ -1,13 +1,30 @@
 'use strict';
 
-// transparent NavBar when it on the top
 const body = document.body;
 const navBar = document.querySelector('#navbar');
 const navBarRect = navBar.getBoundingClientRect();
+const home = document.querySelector('#home');
+const homeRect = home.getBoundingClientRect();
 
+// transparent NavBar when it on the top,
+// transparent HomeContents when it on some scroll
+// scroll to top when arrowbtn clicked
 document.addEventListener('scroll', (e) => {
 	scrollHome();
 	scrollNavbar();
+	scrollArrow();
+});
+
+// When navbarMenu cilicked scroll to each menu section
+const navbarMenu = document.querySelector('ul.navbar__menu');
+navbarMenu.addEventListener('click', (e) => {
+	const target = e.target;
+	if (target.classList.contains('navbar__menu__item')) {
+		removeActive('navbar__menu__item');
+		target.classList.add('active');
+		const section = target.dataset.section;
+		scrollIntoView(section);
+	}
 });
 
 function scrollNavbar() {
@@ -20,6 +37,12 @@ function scrollNavbar() {
 	}
 }
 
+//When Home ContactBtn clicked scroll to contact section
+const contactBtn = document.querySelector('.home_btn');
+contactBtn.addEventListener('click', (e) => {
+	scrollIntoView('#contact');
+});
+
 function scrollHome() {
 	const homeContainer = document.querySelector('.home__container');
 	const homeContainerRect = homeContainer.getBoundingClientRect();
@@ -27,29 +50,26 @@ function scrollHome() {
 	homeContainer.style.opacity = 1 - window.scrollY / homeContainerHeight;
 }
 
-// navbar scrollTo
-const navbarMenu = document.querySelector('ul.navbar__menu');
-navbarMenu.addEventListener('click', (e) => {
-	const target = e.target;
-	if (target.classList.contains('navbar__menu__item')) {
-		removeActive('navbar__menu__item');
-		target.classList.add('active');
-		const section = target.dataset.section;
-		scrollIntoView(section);
-	}
+// When Arrow btn Click, scroll to top
+const arrow = document.querySelector('.arrow');
+
+arrow.addEventListener('click', (e) => {
+	scrollIntoView('body');
 });
 
-//contactme scrollTo
-const contactBtn = document.querySelector('.home_btn');
-contactBtn.addEventListener('click', (e) => {
-	scrollIntoView('#contact');
-});
+function scrollArrow() {
+	let opacity = 0;
+	opacity = window.scrollY > homeRect.height ? 1 : 0;
+	arrow.style.opacity = opacity;
+}
 
+// util
+// ScrollInto selector
 function scrollIntoView(selector) {
 	const section = document.querySelector(selector);
 	section.scrollIntoView({ behavior: 'smooth' });
 }
-
+//removeActive Class in elements that have same className
 function removeActive(className) {
 	const elements = document.querySelectorAll(`.${className}`);
 	elements.forEach((element) => {
