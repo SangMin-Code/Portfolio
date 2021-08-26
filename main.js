@@ -16,7 +16,7 @@ document.addEventListener('scroll', (e) => {
 });
 
 // When navbarMenu cilicked scroll to each menu section
-const navbarMenu = document.querySelector('ul.navbar__menu');
+const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (e) => {
 	const target = e.target;
 	if (target.classList.contains('navbar__menu__item')) {
@@ -117,4 +117,18 @@ category.addEventListener('click', (e) => {
 		});
 		projectContainer.classList.remove('invisible');
 	}, 300);
+});
+
+//click navbar__toggle-btn, show nav menu
+
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+const navbarContainer = document.querySelector('.navbar__menu__container');
+
+navbarToggleBtn.addEventListener('click', () => {
+	if (!navBar.classList.contains('onscroll')) {
+		navBar.classList.add('onscroll');
+	}
+
+	navbarContainer.classList.toggle('visible');
+	navbarMenu.classList.toggle('visible');
 });
