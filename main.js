@@ -54,7 +54,7 @@ function scrollHome() {
 const arrow = document.querySelector('.arrow');
 
 arrow.addEventListener('click', (e) => {
-	scrollIntoView('body');
+	scrollIntoView('#home');
 });
 
 function scrollArrow() {
@@ -80,3 +80,47 @@ function removeActive(className) {
 		}
 	});
 }
+
+//when works button clicked, reorder project list
+const category = document.querySelector('.work__categories');
+category.addEventListener('click', (e) => {
+	const target = e.target;
+
+	if (target.dataset.project === undefined) {
+		return;
+	}
+	removeActive('category__btn');
+	target.classList.add('active');
+
+	const projects = document.querySelectorAll('.project');
+
+	projects.forEach((project) => {
+		project.classList.add('invisible');
+	});
+
+	switch (target.dataset.project) {
+		case 'all':
+			projects.forEach((project) => {
+				project.classList.remove('invisible');
+			});
+			break;
+		case 'front-end':
+			projects.forEach((project) => {
+				if (project.dataset.project === 'front-end') {
+					project.classList.remove('invisible');
+				} else {
+					project.classList.add('invisible');
+				}
+			});
+			break;
+		case 'back-end':
+			projects.forEach((project) => {
+				if (project.dataset.project === 'back-end') {
+					project.classList.remove('invisible');
+				} else {
+					project.classList.add('invisible');
+				}
+			});
+			break;
+	}
+});

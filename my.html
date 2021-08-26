@@ -212,13 +212,13 @@
             <h1>My Work</h1>
             <h3>Projects</h3>
             <div class="work__categories">
-                <button class="category__btn active">All <span class="category__count">3</span></button>
-                <button class="category__btn">Front-end <span class="category__count">2</span></button>
-                <button class="category__btn">Web-Project <span class="category__count">1</span></button>
+                <button class="category__btn" data-project="all">All <span class="category__count">3</span></button>
+                <button class="category__btn" data-project="front-end">Front-end <span class="category__count">2</span></button>
+                <button class="category__btn" data-project="back-end">Web-Project <span class="category__count">1</span></button>
             </div>
 
             <div class="work__projects">
-                <a href="#" class="project" target="blank">
+                <a href="#" class="project" data-project="front-end" target="blank">
                     <img class="project__img" src="./images/project4.PNG" alt="javascript_project">
                     <div class="project__description">
                         <h3>클릭 게임</h3>
@@ -227,7 +227,7 @@
                         </span>
                     </div>
                 </a>
-                <a href="#" class="project" target="blank">
+                <a href="#" class="project" data-project="front-end" target="blank">
                     <img class="project__img" src="./images/project1.png" alt="Web-Project_1">
                     <div class="project__description">
                         <h3>산책</h3>
@@ -238,7 +238,7 @@
                         </span>
                     </div>
                 </a>
-                <a href="#" class="project" target="blank">
+                <a href="#" class="project" data-project="back-end" target="blank">
                     <img class="project__img" src="./images/project2.png" alt="Web-Project_2">
                     <div class="project__description">
                         <h3>구인구직</h3>
@@ -249,7 +249,7 @@
                         </span>
                     </div>
                 </a>
-                <a href="#" class="project" target="blank">
+                <a href="#" class="project" data-project="back-end" target="blank">
                     <img class="project__img" src="./images/project3.png" alt="Web-Project_3">
                     <div class="project__description">
                         <h3>너나들이</h3>
