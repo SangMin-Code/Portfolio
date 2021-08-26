@@ -379,6 +379,14 @@ p {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	opacity: 1;
+	transform: translateY(0px);
+	transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.invisible {
+	opacity: 0;
+	transform: translateY(10px);
 }
 
 .project {
@@ -397,10 +405,7 @@ p {
 }
 
 .project.invisible {
-	transform: translateY(100px);
-	opacity: 0;
-	width: 0;
-	pointer-events: none;
+	display: none;
 }
 
 .project__img {

@@ -83,44 +83,38 @@ function removeActive(className) {
 
 //when works button clicked, reorder project list
 const category = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
 category.addEventListener('click', (e) => {
 	const target = e.target;
+	const filter = target.dataset.filter || target.parentNode.dataset.filter;
 
-	if (target.dataset.project === undefined) {
+	if (
+		filter == null ||
+		target.classList.contains('active') ||
+		target.parentNode.classList.contains('active')
+	) {
 		return;
 	}
+
 	removeActive('category__btn');
-	target.classList.add('active');
+	if (target.dataset.filter) {
+		target.classList.add('active');
+	} else if (target.parentNode.dataset.filter) {
+		target.parentNode.classList.add('active');
+	}
 
 	const projects = document.querySelectorAll('.project');
 
-	projects.forEach((project) => {
-		project.classList.add('invisible');
-	});
+	projectContainer.classList.add('invisible');
 
-	switch (target.dataset.project) {
-		case 'all':
-			projects.forEach((project) => {
+	setTimeout(() => {
+		projects.forEach((project) => {
+			if (filter === '*' || project.dataset.type === filter) {
 				project.classList.remove('invisible');
-			});
-			break;
-		case 'front-end':
-			projects.forEach((project) => {
-				if (project.dataset.project === 'front-end') {
-					project.classList.remove('invisible');
-				} else {
-					project.classList.add('invisible');
-				}
-			});
-			break;
-		case 'back-end':
-			projects.forEach((project) => {
-				if (project.dataset.project === 'back-end') {
-					project.classList.remove('invisible');
-				} else {
-					project.classList.add('invisible');
-				}
-			});
-			break;
-	}
+			} else {
+				project.classList.add('invisible');
+			}
+		});
+		projectContainer.classList.remove('invisible');
+	}, 300);
 });
