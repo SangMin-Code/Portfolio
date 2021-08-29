@@ -346,6 +346,7 @@ p {
 	border-radius: var(--size-border-radius);
 	font-size: var(--font-regular);
 	padding: 8px 48px;
+	position: relative;
 }
 
 .category__btn.active,
@@ -357,7 +358,7 @@ p {
 .category__btn.active .category__count,
 .category__btn:hover .category__count {
 	opacity: 1;
-	top: 0;
+	top: 5px;
 }
 
 .category__count {
@@ -368,9 +369,9 @@ p {
 	height: 24px;
 	display: inline-block;
 	line-height: 24px;
-	position: relative;
+	position: absolute;
+	right: 16px;
 	top: -20px;
-	left: 4px;
 	opacity: 0;
 	transition: all var(--animation-duration) ease-in;
 }
@@ -537,6 +538,15 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+	:root {
+		/* Font size */
+		--font-large: 30px;
+		--font-medium: 18px;
+		--font-regular: 16px;
+		--font-small: 14px;
+		--font-micro: 12px;
+	}
+
 	.navbar__toggle-btn {
 		display: block;
 	}
@@ -564,17 +574,26 @@ p {
 	.navbar__menu.visible {
 		display: block;
 	}
+	.section {
+		padding: 16px;
+		padding-top: 40px;
+	}
 	.about__majors {
 		flex-direction: column;
+		margin-top: 30px;
+		margin-bottom: 0px;
 	}
 	.major {
-		margin-bottom: 38px;
+		margin-bottom: 30px;
 	}
 	.skillset {
 		flex-direction: column;
 	}
 	.work__categories {
 		flex-direction: column;
+	}
+	.category__btn {
+		margin: 4px;
 	}
 	.project {
 		flex-grow: 1;
