@@ -6,6 +6,8 @@ const navBarRect = navBar.getBoundingClientRect();
 const home = document.querySelector('#home');
 const homeRect = home.getBoundingClientRect();
 
+
+
 // transparent NavBar when it on the top,
 // transparent HomeContents when it on some scroll
 // scroll to top when arrowbtn clicked
